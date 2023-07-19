@@ -35,21 +35,21 @@ source venv/bin/activate
 - Create a `.env` file containing the following values
 ```
 DATABASE_URL=postgresql://{db_user}:{db_password}@db_server/db_name
-TEST_DATABASE_URL='sqlite:///app.db'
+SQLALCHEMY_DATABASE_URI='sqlite:///app.db'
 SECRET_KEY='AStrongRandomKey'
 ```
-- `db_user` is your postgres database username
-- `db_password` is the postgres user password
-- `db_server` is the postgressql database server e.g `localhost`
+- `db_user` is your Postgres database username
+- `db_password` is the Postgres user password
+- `db_server` is the Postgres database server e.g `localhost`
 
 ### Install project requirements packages
-Install the required python packages by running the following command
+Install the required Python packages by running the following command
 ```bash
 pip install -r requirements.txt
 ```
 
 ### Create database tables
-This stage concist of creating the required tables where the excel files data will be stored.
+This stage consists of creating the required tables where the Excel file data will be stored.
 To proceed, the following commands must be executed.
 **Note: Make sure the database for this project has been created ***
 ```bash
@@ -61,13 +61,13 @@ flask db upgrade
 ```
 
 ### Running the application
-To Run the application, execute the following command, which will read the excel(`.xls`, `.xlsx`) file present in the `data` folder, process and insert the data in postgresql database previous created.
+To Run the application, execute the following command, which will read the Excel (`.xls`, `.xlsx`) file present in the `data` folder, process and insert the data in Postgresql database previously created.
 **Note:
 
 ```bash
 make load
 ```
-To view the data loaded to the database, there is an api endpoint that exposes the data based on the tenant ID accessible on localhost through the API endpoint below
+To view the data loaded to the database, there is an API endpoint that exposes the data based on the tenant ID accessible on localhost through the API endpoint below
 `/api/v1/tenants/{tenant_id}/transactions`
 
 Where `{tenant_id}` id is an integer corresponding to the primary key of the tenant table.
