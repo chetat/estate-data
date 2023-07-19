@@ -75,7 +75,9 @@ Where `{tenant_id}` id is an integer corresponding to the primary key of the ten
 ### Running unit tests
 To execute the unit tests, type the following command
 
-`make test`
+```bash
+make test
+```
 
 ## Potential update
 A new feature can be added to automate the data normalization by executing this program as a cronjob at a given interval(perhaps every hour) to avoid the manual process of always executing the file when there is new data available from the client. 
